@@ -15,7 +15,8 @@ jobs:
       - run: echo "Wow ${{ github.base_ref }} - ${{ github.head_ref }}"
       - run: |
           git clone https://github.com/${{ github.repository }} -b `echo ${{ github.ref }} | cut -d'/' -f3`
-          cat */first
+          cd test-workflow
+          cat first
           git diff --name-status main
       - name: Check out repository code
         uses: actions/checkout@v2
