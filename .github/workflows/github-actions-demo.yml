@@ -17,6 +17,7 @@ jobs:
           git clone https://github.com/${{ github.repository }} -b `echo ${{ github.ref }} | cut -d'/' -f3`
           cd test-workflow
           cat first
+          git checkout main && git fetch
           git diff --name-status main..`echo ${{ github.ref }} | cut -d'/' -f3`
       - name: Check out repository code
         uses: actions/checkout@v2
